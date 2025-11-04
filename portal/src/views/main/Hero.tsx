@@ -1,6 +1,5 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { ComicWithUser } from "@/types/Comic";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
