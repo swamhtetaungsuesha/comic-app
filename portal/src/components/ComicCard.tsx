@@ -5,7 +5,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Star } from "lucide-react";
 
-export default function ComicCard({ comic }: { comic: ComicWithUser }) {
+export default function ComicCard({
+  comic,
+}: {
+  comic: ComicWithUser | Omit<Comic, "user_id">;
+}) {
+  function hasUser(
+    comic: Omit<Comic, "user_id"> | ComicWithUser
+  ): comic is ComicWithUser {
+    return (comic as ComicWithUser).user !== undefined;
+  }
   return (
     <Link href={`/comic/${comic.comic_id}`} className="w-full">
       <div className="w-46 cursor-pointer overflow-hidden flex flex-col mx-auto">
@@ -23,15 +32,17 @@ export default function ComicCard({ comic }: { comic: ComicWithUser }) {
             (120)
           </p>
 
-          <Link href="/main/profile">
-            <Button className="flex items-center gap-2 p-0" variant={"link"}>
-              <Avatar>
-                <AvatarImage src={comic.user.avatar} alt={comic.user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-              </Avatar>
-              <span className="truncate font-medium">{comic.user.name}</span>
-            </Button>
-          </Link>
+          {hasUser(comic) && (
+            <Link href={`/user/${comic.user.user_id}`}>
+              <Button className="flex items-center gap-2 p-0" variant={"link"}>
+                <Avatar>
+                  <AvatarImage src={comic.user.avatar} alt={comic.user.name} />
+                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                </Avatar>
+                <span className="truncate font-medium">{comic.user.name}</span>
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </Link>

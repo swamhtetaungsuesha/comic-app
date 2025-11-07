@@ -1,4 +1,4 @@
-import SigninView from "@/views/signin";
+import SigninView from "@/views/auth/signin";
 import Image from "next/image";
 
 export default function SignIn() {

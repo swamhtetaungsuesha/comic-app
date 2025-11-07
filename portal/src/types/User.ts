@@ -4,3 +4,15 @@ interface User {
   email: string;
   avatar: string;
 }
+
+interface Profile extends User {
+  bio: string;
+  bannerUrl: string;
+  social: string[];
+  stats: {
+    followers: number;
+    following: number;
+    creations: number;
+  };
+  contents: Omit<Comic, "user_id">[];
+}

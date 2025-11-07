@@ -1,7 +1,5 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { ComicWithUser } from "@/types/Comic";
-import { User } from "@/types/User";
 import Slider from "@/views/main/Slider";
 import CoverTopBackground from "@/views/search/CoverTopBackground";
 import SearchInput from "@/views/search/SearchInput";

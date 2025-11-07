@@ -3,8 +3,6 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Grid, Navigation } from "swiper/modules";
 import ComicCard from "../../components/ComicCard";
-import { ComicWithUser } from "@/types/Comic";
-import { User } from "@/types/User";
 import { cn } from "@/lib/utils";
 import ArtistCard from "@/components/ArtistCard";
 
