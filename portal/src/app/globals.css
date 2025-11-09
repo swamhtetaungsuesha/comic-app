@@ -302,6 +302,115 @@
 .comic-tag {
 }
 
+/* Profile */
+.profile-container {
+  @apply min-h-screen font-sans text-foreground;
+}
+.profile-main {
+  @apply relative;
+}
+
+.profile-contents {
+  @apply container mx-auto px-4 md:px-8 mt-10 pb-20;
+}
+
+/** Profile Banner **/
+.profile-banner {
+  @apply w-full h-48 sm:h-60 bg-secondary overflow-hidden -z-10;
+}
+
+.profile-banner img {
+  @apply w-full h-full object-cover opacity-70;
+}
+
+/** Profile Card **/
+.profile-card-container {
+  @apply container mx-auto px-4 md:px-8 -mt-20 z-50;
+}
+
+.profile-card {
+  @apply p-6 md:p-8;
+}
+
+.profile-card-details {
+  @apply flex flex-col md:flex-row md:items-start md:space-x-8;
+}
+
+.profile-card-stats {
+  @apply flex space-x-8 mt-4 py-3 md:w-full;
+}
+.profile-card-bio-stats-container {
+  @apply flex-1 md:mt-20 mt-0;
+}
+
+.profile-card-bio-stats-header {
+  @apply flex items-center justify-between;
+}
+
+.profile-card-bio-stats-header h1 {
+  @apply text-3xl font-extrabold text-foreground leading-tight;
+}
+
+.profile-card-email {
+  @apply text-sm font-medium text-muted-foreground mt-1;
+}
+
+.profile-card-bio {
+  @apply text-sm mt-4 max-w-2xl;
+}
+
+/*** Profile Card Stats ***/
+.profile-card-stats {
+  @apply flex space-x-8 mt-4 py-3 md:w-full;
+}
+
+.profile-card-stats-item {
+  @apply flex flex-col items-center p-2;
+}
+
+.profile-card-stats-item-value {
+  @apply text-xl font-bold text-foreground;
+}
+
+.profile-card-stats-item-label {
+  @apply text-xs font-medium text-muted-foreground uppercase tracking-wider;
+}
+
+/*** Profile Card Socials ***/
+.profile-card-socials {
+  @apply flex items-center space-x-4 mt-6 border-t border-muted-foreground pt-4;
+}
+
+.profile-card-socials span {
+  @apply text-sm font-semibold;
+}
+
+/** Profile Tabs **/
+.content-header {
+  @apply flex items-center justify-between mb-6;
+}
+
+.content-header h2 {
+  @apply text-primary text-lg font-semibold border-l-4 border-primary pl-3;
+}
+
+/*** Profile Tabs Content ***/
+.profile-content-grid {
+  @apply grid grid-cols-2   sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-6;
+}
+
+.profile-content-followers-following-card {
+  @apply w-46 cursor-pointer overflow-hidden flex flex-col mx-auto justify-center items-center;
+}
+
+.profile-content-followers-following-card-details {
+  @apply p-2 flex-1 flex flex-col justify-between gap-2 items-center;
+}
+
+.profile-content-followers-following-card-details h3 {
+  @apply font-semibold truncate text-lg;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

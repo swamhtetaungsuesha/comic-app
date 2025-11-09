@@ -1,11 +1,9 @@
-import { ComicWithUser } from "@/types/Comic";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Star } from "lucide-react";
-import { User } from "@/types/User";
 
 export default function ArtistCard({ artist }: { artist: User }) {
   return (

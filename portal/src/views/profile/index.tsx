@@ -1,18 +1,25 @@
-import "@/app/(main)/user/[user]/creator-profile.css";
-import CreatorBanner from "./banner/CreatorBanner";
-import CreatorProfileCard from "./card/CreatorProfileCard";
-import CreatorTabs from "./CreatorTabs";
+import CreatorBanner from "./banner";
+import CreatorProfileCard from "./card";
+import CreatorTabs from "./tabs";
+import { FC } from "react";
 
-export default function Profile({ user }: { user: Profile }) {
+interface ProfileProps {
+  user: Profile;
+  isOwner: boolean;
+}
+
+const Profile: FC<ProfileProps> = ({ user, isOwner }) => {
   return (
-    <div className="creator-page">
-      <div className="relative">
+    <div className="profile-container">
+      <div className="profile-main">
         <CreatorBanner bannerUrl={user.bannerUrl} />
-        <CreatorProfileCard user={user} />
+        <CreatorProfileCard user={user} isOwner={isOwner} />
       </div>
-      <main className="creator-main">
-        <CreatorTabs user={user} />
+      <main className="profile-contents">
+        <CreatorTabs user={user} isOwner={isOwner} />
       </main>
     </div>
   );
-}
+};
+
+export default Profile;
