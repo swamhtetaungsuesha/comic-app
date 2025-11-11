@@ -5,6 +5,8 @@ interface Chapter {
   cover_url: string;
   comic_id: string;
   created_at: string;
+  is_premium: boolean;
+  price?: number;
 }
 
 type ChapterWithComicAndCommentCount = Omit<Chapter, "comic_id"> & {
@@ -16,4 +18,14 @@ type ChapterWithComicAndCommentCount = Omit<Chapter, "comic_id"> & {
 
 type ChapterWithCommentCount = Omit<Chapter, "comic_id"> & {
   comment_count: number;
+};
+
+// For detailed view
+type ChapterWithComicAndComment = Omit<Chapter, "comic_id"> & {
+  comic: {
+    title: string;
+    cover_url: string;
+  };
+  page: Omit<Page, "chapter_id">[];
+  comments: Comment[];
 };
