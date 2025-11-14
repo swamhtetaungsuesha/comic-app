@@ -68,6 +68,11 @@ const initialPages = [
   },
 ];
 
+const comic = {
+  title: "Epic Adventures",
+  cover_url: "https://placehold.co/150x200/4f46e5/ffffff?text=Epic+Adventures",
+  comic_id: COMIC_ID,
+};
 // --- CHAPTER MODAL ---
 function ChapterModal({
   open,
@@ -201,19 +206,38 @@ export default function CreateDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-[var(--font-sans)] p-6 space-y-6">
-      <header>
+    <div className="min-h-screen space-y-6">
+      {/* <header>
         <h1 className="text-3xl font-bold">
           <span className="text-[var(--primary)]">Comic</span> Creator Dashboard
         </h1>
         <p className="text-sm text-[var(--muted-foreground)] mt-1">
           Manage your chapters and pages efficiently.
         </p>
-      </header>
+      </header> */}
+      <div className="flex flex-col lg:flex-row justify-between items-start mb-6 border-b border-border gap-4 px-4 py-2 bg-card sticky top-0 z-20">
+        {/* Title & Info */}
+        <div className="flex-1 flex items-center gap-4 w-full">
+          <Image
+            src={comic.cover_url}
+            width={60}
+            height={100}
+            alt={comic.title}
+          />
+          <div>
+            <h1 className="text-3xl font-extrabold text-foreground leading-tight">
+              {comic.title}
+            </h1>
+            <p className="text-lg text-primary font-semibold mt-1">
+              Comic Creator Dashboard
+            </p>
+          </div>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-6">
         {/* LEFT PANEL */}
-        <Card className="p-4 lg:col-span-4 xl:col-span-3 h-screen">
+        <div className="p-4 lg:col-span-4 xl:col-span-3">
           <div className=" mb-4">
             <h2 className="text-lg font-semibold mb-4 border-b pb-2 ">
               Chapters ({chapters.length})
@@ -256,13 +280,13 @@ export default function CreateDashboard() {
               </div>
             ))}
           </div>
-        </Card>
+        </div>
 
         {/* RIGHT PANEL */}
-        <Card className="lg:col-span-8 xl:col-span-9">
+        <div className="lg:col-span-8 xl:col-span-9">
           {selectedChapter ? (
             <>
-              <CardHeader>
+              <div className="border-b">
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-2xl font-bold">
                     {selectedChapter.title}
@@ -283,8 +307,8 @@ export default function CreateDashboard() {
                     <p className="text-green-400 font-semibold">Free</p>
                   )}
                 </div>
-              </CardHeader>
-              <CardContent>
+              </div>
+              <div className="py-6">
                 <h3 className="text-lg font-semibold mb-3">
                   Pages ({selectedPages.length})
                 </h3>
@@ -308,7 +332,7 @@ export default function CreateDashboard() {
                     </Card>
                   ))}
                 </div>
-              </CardContent>
+              </div>
             </>
           ) : (
             <div className="text-center text-[var(--muted-foreground)] p-8">
@@ -316,7 +340,7 @@ export default function CreateDashboard() {
               <p>Select a chapter to view details.</p>
             </div>
           )}
-        </Card>
+        </div>
       </div>
     </div>
   );

@@ -29,3 +29,11 @@ type ChapterWithComicAndComment = Omit<Chapter, "comic_id"> & {
   page: Omit<Page, "chapter_id">[];
   comments: Comment[];
 };
+
+type ChaptersWithComicAndRatings = Omit<
+  Comic,
+  "user_id" | "description" | "genres"
+> & {
+  chapters: Omit<Chapter, "comic_id">[];
+  rating: number;
+};

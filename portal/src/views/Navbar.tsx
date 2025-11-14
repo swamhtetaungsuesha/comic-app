@@ -18,26 +18,22 @@ export default function Navbar() {
       <div className="flex items-center gap-3">
         <Link href="/">
           <div className="flex items-center gap-2">
-            {/* <Image
-              src="/next.svg"
-              alt="Comic App Logo"
-              width={32}
-              height={32}
-            /> */}
             <BoxIcon size={32} />
             <span className="font-bold text-xl italic">COMIC FOLDER</span>
           </div>
+          {/* <Image src="/logo.png" alt="Comic App Logo" width={60} height={62} /> */}
         </Link>
       </div>
       <div className="flex-1 flex items-center gap-6 mx-20">
         <Link href="/">HOME</Link>
         <Link href="/genre">GENRE</Link>
-        <Link href="/auth/sign-in">
+        <Link href="/aware">AWARD</Link>
+        {/* <Link href="/auth/sign-in">
           <Button variant="outline">
             DASHBOARD
             <Plus size={36} />
           </Button>
-        </Link>
+        </Link> */}
         <div>
           <div className="relative w-full max-w-sm">
             <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

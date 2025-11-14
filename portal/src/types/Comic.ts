@@ -13,3 +13,7 @@ type ComicWithChapterAndUserAndRating = ComicWithUser & {
   chapter: ChapterWithCommentCount[];
   ratings: Omit<RatingWithUser, "comic_id">[];
 };
+
+type ComicWithRatings = Omit<Comic, "user_id" | "description" | "genres"> & {
+  rating: number;
+};

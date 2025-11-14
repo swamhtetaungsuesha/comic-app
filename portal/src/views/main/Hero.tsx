@@ -35,7 +35,7 @@ export default function Hero({ features }: { features: ComicWithUser[] }) {
   return (
     <div className="bg-primary-foreground w-full relative">
       <div className="w-full h-full absolute bg-linear-to-t from-background via-background/30 to-background  top-0 right-0"></div>
-      <div className="p-12 bg-primary-foreground rounded-lg">
+      <div className="p-12 bg-primary rounded-lg">
         <div className="flex justify-between">
           {features.map((feature, i) => {
             return (

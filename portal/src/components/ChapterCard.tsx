@@ -9,7 +9,7 @@ export default function ChatperCard({
   const comic = (chapter as ChapterWithComicAndCommentCount).comic;
   return (
     <Link href={`/viewer/${chapter.chapter_id}`}>
-      <div className="flex flex-row items-center justify-between overflow-hidden hover:bg-primary-foreground transition-all duration-300">
+      <div className="flex flex-row items-center justify-between overflow-hidden hover:bg-secondary/20 transition-all duration-300">
         <img
           src={chapter.cover_url}
           alt={chapter.title}
