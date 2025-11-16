@@ -14,20 +14,25 @@ export default function Navbar() {
     email: "LbA9o@example.com",
   };
   return (
-    <nav className="w-full  flex items-center justify-between px-6 py-6">
+    <nav className="w-full  flex items-center justify-between px-6 py-2">
       <div className="flex items-center gap-3">
         <Link href="/">
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <BoxIcon size={32} />
             <span className="font-bold text-xl italic">COMIC FOLDER</span>
-          </div>
-          {/* <Image src="/logo.png" alt="Comic App Logo" width={60} height={62} /> */}
+          </div> */}
+          <Image
+            src="/logo_page.png"
+            alt="Comic App Logo"
+            width={200}
+            height={62}
+          />
         </Link>
       </div>
       <div className="flex-1 flex items-center gap-6 mx-20">
         <Link href="/">HOME</Link>
         <Link href="/genre">GENRE</Link>
-        <Link href="/aware">AWARD</Link>
+        <Link href="/award">AWARD</Link>
         {/* <Link href="/auth/sign-in">
           <Button variant="outline">
             DASHBOARD

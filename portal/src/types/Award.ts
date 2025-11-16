@@ -5,6 +5,7 @@ interface Award {
   rank: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   award: "Gold" | "Silver" | "Bronze" | "Not Ranked";
   period: "weekly" | "monthly" | "yearly";
+  created_at: EpochTimeStamp;
 }
 
 type AwardWithUser = Omit<Award, "user_id"> & {
@@ -13,13 +14,13 @@ type AwardWithUser = Omit<Award, "user_id"> & {
 
 type PeriodAwardRanking = {
   owner: {
-    weekly: Omit<Award, "period" | "user_id">;
-    monthly: Omit<Award, "period" | "user_id">;
-    yearly: Omit<Award, "period" | "user_id">;
+    weekly: Omit<Award, "period" | "user_id" | "created_at">;
+    monthly: Omit<Award, "period" | "user_id" | "created_at">;
+    yearly: Omit<Award, "period" | "user_id" | "created_at">;
   };
   creators: {
-    weekly: Omit<AwardWithUser, "period">[];
-    monthly: Omit<AwardWithUser, "period">[];
-    yearly: Omit<AwardWithUser, "period">[];
+    weekly: Omit<AwardWithUser, "period" | "created_at">[];
+    monthly: Omit<AwardWithUser, "period" | "created_at">[];
+    yearly: Omit<AwardWithUser, "period" | "created_at">[];
   };
 };

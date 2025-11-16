@@ -52,9 +52,10 @@ export default function FormSignin() {
     <div className="flex justify-center items-center min-h-screen p-4">
       {/* Container for the form structure - replacing the Card */}
       <div className="w-full max-w-sm  space-y-6  ">
-        <div className="rounded-full border-3 p-5 w-max bg-accent">
+        {/* <div className="rounded-full border-3 p-5 w-max bg-accent">
           <Box size={100} />
-        </div>
+        </div> */}
+        <Image src="/logo_page.png" alt="Logo" width={400} height={100} />
         {/* Title and Description Section */}
         <div className="text-start space-y-1">
           <h1 className="text-3xl font-bold tracking-tight">

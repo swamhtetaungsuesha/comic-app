@@ -13,6 +13,8 @@ interface Profile extends User {
     followers: number;
     following: number;
     creations: number;
+    awards: number;
   };
-  contents: Omit<Comic, "user_id">[];
+  creations: Omit<Comic, "user_id">[];
+  awards: Omit<Award, "user_id">[];
 }

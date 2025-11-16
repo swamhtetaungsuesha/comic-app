@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Box } from "lucide-react";
+import Image from "next/image";
 
 // 1. Define the form schema for Sign Up.
 const formSchema = z
@@ -65,9 +66,8 @@ export default function FormSignup() {
     <div className="flex justify-center items-center min-h-screen p-4">
       {/* Container for the form structure */}
       <div className="w-full max-w-md space-y-6 ">
-        <div className="rounded-full border-3 p-5 w-max bg-accent">
-          <Box size={100} />
-        </div>
+        <Image src="/logo_page.png" alt="Logo" width={400} height={100} />
+
         {/* Title and Description Section */}
         <div className="text-start space-y-1">
           <h1 className="text-3xl font-bold tracking-tight">

@@ -72,8 +72,9 @@ export const mockProfile: Profile = {
     followers: 1245,
     following: 56,
     creations: 12,
+    awards: 4,
   },
-  contents: [
+  creations: [
     {
       comic_id: "1",
       title: "Demon Slayer",
@@ -193,6 +194,40 @@ export const mockProfile: Profile = {
       genres: ["Action", "Adventure"],
       cover_url:
         "https://images.justwatch.com/poster/8906736/s718/season-1.jpg",
+    },
+  ],
+  awards: [
+    {
+      award_id: "1",
+      score: 1230,
+      rank: 4,
+      award: "Silver",
+      period: "weekly",
+      created_at: 1750000000,
+    },
+    {
+      award_id: "2",
+      score: 1330,
+      rank: 2,
+      award: "Silver",
+      period: "monthly",
+      created_at: 1730000000,
+    },
+    {
+      award_id: "3",
+      score: 1430,
+      rank: 1,
+      award: "Gold",
+      period: "yearly",
+      created_at: 1730000000,
+    },
+    {
+      award_id: "4",
+      score: 1430,
+      rank: 6,
+      award: "Bronze",
+      period: "yearly",
+      created_at: 1730000000,
     },
   ],
 };

@@ -22,6 +22,7 @@ export default function CreatorProfileCard({
       followers: formatNumber(user.stats.followers),
       creations: user.stats.creations,
       following: user.stats.following,
+      awards: user.stats.awards,
     }),
     [user.stats]
   );

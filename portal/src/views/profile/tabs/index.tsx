@@ -5,6 +5,7 @@ import ComicCard from "@/components/ComicCard";
 import CreatorCreations from "./contents/CreatorCreations";
 import CreatorFollowers from "./contents/CreatorFollowers";
 import CreatorFollowing from "./contents/CreatorFollowing";
+import CreatorAwards from "./contents/CreatorAwards";
 
 interface CreatorTabsProps {
   user: Profile;
@@ -20,11 +21,12 @@ export default function CreatorTabs({ user, isOwner }: CreatorTabsProps) {
           <TabsTrigger value="creations">Creations</TabsTrigger>
           <TabsTrigger value="followers">Followers</TabsTrigger>
           <TabsTrigger value="following">Following</TabsTrigger>
+          <TabsTrigger value="awards">Awards</TabsTrigger>
         </TabsList>
       </div>
 
       <TabsContent value="creations">
-        <CreatorCreations creations={user.contents} />
+        <CreatorCreations creations={user.creations} />
       </TabsContent>
 
       <TabsContent value="followers">
@@ -32,6 +34,9 @@ export default function CreatorTabs({ user, isOwner }: CreatorTabsProps) {
       </TabsContent>
       <TabsContent value="following">
         <CreatorFollowing isOwner={isOwner} />
+      </TabsContent>
+      <TabsContent value="awards">
+        <CreatorAwards awards={user.awards} />
       </TabsContent>
     </Tabs>
   );

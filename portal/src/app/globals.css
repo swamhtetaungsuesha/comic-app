@@ -254,14 +254,14 @@
   --card-foreground: oklch(0.97 0 0);
   --popover: oklch(0.27 0.01 39.35);
   --popover-foreground: oklch(0.97 0 0);
-  --primary: oklch(0.51 0.19 27.52);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.47 0.12 46.52);
-  --secondary-foreground: oklch(0.96 0.06 94.84);
+  --primary: #ba1f1e;
+  --primary-foreground: #f8f8f8;
+  --secondary: #8f4112;
+  --secondary-foreground: #fef2c5;
   --muted: oklch(0.27 0.01 39.35);
   --muted-foreground: oklch(0.87 0 0);
-  --accent: oklch(0.56 0.15 49.06);
-  --accent-foreground: oklch(0.96 0.06 94.84);
+  --accent: #b75300;
+  --accent-foreground: #fef2c5;
   --destructive: oklch(0.64 0.21 25.39);
   --border: oklch(0.37 0.01 73.58);
   --input: oklch(0.37 0.01 73.58);
@@ -275,7 +275,7 @@
   --sidebar-foreground: oklch(0.97 0 0);
   --sidebar-primary: oklch(0.51 0.19 27.52);
   --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.56 0.15 49.06);
+  --sidebar-accent: #b75300;
   --sidebar-accent-foreground: oklch(0.96 0.06 94.84);
   --sidebar-border: oklch(0.37 0.01 73.58);
   --sidebar-ring: oklch(0.51 0.19 27.52);
@@ -513,7 +513,7 @@
 
 /*** Profile Card Stats ***/
 .profile-card-stats {
-  @apply flex space-x-8 mt-4 py-3 md:w-full;
+  @apply flex md:space-x-8 space-x-6 mt-4 py-3 md:w-full;
 }
 
 .profile-card-stats-item {
@@ -530,7 +530,7 @@
 
 /*** Profile Card Socials ***/
 .profile-card-socials {
-  @apply flex items-center space-x-4 mt-6 border-t border-muted-foreground pt-4;
+  @apply flex items-center space-x-4 mt-6 border-t pt-4;
 }
 
 .profile-card-socials span {
@@ -563,6 +563,31 @@
   @apply font-semibold truncate text-lg;
 }
 
+.profile-content-awards-card {
+  @apply w-46 cursor-pointer overflow-hidden flex flex-col mx-auto justify-center items-center;
+}
+
+.profile-content-awards-card-image {
+  @apply relative w-46 cursor-pointer overflow-hidden flex flex-col mx-auto justify-center items-center;
+}
+.profile-content-awards-card-period {
+  @apply absolute top-0 right-5;
+}
+.profile-content-awards-card-details {
+  @apply p-2 flex-1 flex flex-col justify-between items-center;
+}
+
+.profile-content-awards-card-details h3 {
+  @apply font-semibold truncate text-lg flex items-center gap-2;
+}
+
+.profile-content-awards-card-details h3 span {
+  @apply text-primary;
+}
+
+.profile-content-awards-card-details p {
+  @apply text-sm text-muted-foreground;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;

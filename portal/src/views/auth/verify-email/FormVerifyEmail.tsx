@@ -23,6 +23,7 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
+import Image from "next/image";
 
 // 1. Define the form schema for Email Validation Code.
 const formSchema = z.object({
@@ -67,9 +68,8 @@ export default function FormEmailValidation() {
       <div className="w-full max-w-sm space-y-8">
         {/* Icon and Title Section */}
         <div className="flex flex-col items-start text-start space-y-4">
-          <div className="rounded-full border-3 p-5 w-max bg-accent">
-            <Box size={100} />
-          </div>
+          <Image src="/logo_page.png" alt="Logo" width={400} height={100} />
+
           <h1 className="text-3xl font-bold tracking-tight">
             <span className="text-primary">Verify</span> Your Email
           </h1>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
-import { Star } from "lucide-react";
+import { Heart, Star } from "lucide-react";
 
 export default function ComicCard({
   comic,
@@ -17,20 +17,25 @@ export default function ComicCard({
   }
   return (
     <Link href={`/comic/${comic.comic_id}`} className="w-full">
-      <div className="w-46 cursor-pointer overflow-hidden flex flex-col mx-auto">
+      <div className="w-46 cursor-pointer overflow-hidden flex flex-col mx-auto relative group">
         <Image
           src={comic.cover_url}
           alt={comic.title}
           width={128}
           height={176}
-          className="w-full "
+          className="w-full group-hover:scale-110 transition-all duration-300"
         />
         <div className="p-2 flex-1 flex flex-col justify-between gap-2">
           <h3 className=" font-semibold truncate text-lg ">{comic.title}</h3>
-          <p className="float-left flex items-center gap-1 text-sm text-muted-foreground">
-            <Star size={16} className="text-yellow-400" fill="#facc15" /> 4.5
-            (120)
-          </p>
+          <div className="flex justify-between">
+            <p className="float-left flex items-center gap-1 text-sm text-muted-foreground">
+              <Star size={16} className="text-yellow-400" fill="#facc15" /> 4.5
+              (120)
+            </p>
+            <p className="float-left flex items-center gap-1 text-sm text-muted-foreground">
+              <Heart size={16} /> 1.2K
+            </p>
+          </div>
 
           {hasUser(comic) && (
             <Link href={`/user/${comic.user.user_id}`}>
@@ -44,6 +49,7 @@ export default function ComicCard({
             </Link>
           )}
         </div>
+        <div className="w-full h-full bg-background absolute top-0 right-0 opacity-0 hover:opacity-60 transition-opacity duration-300" />
       </div>
     </Link>
   );
