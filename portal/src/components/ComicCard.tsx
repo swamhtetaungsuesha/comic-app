@@ -18,13 +18,16 @@ export default function ComicCard({
   return (
     <Link href={`/comic/${comic.comic_id}`} className="w-full">
       <div className="w-46 cursor-pointer overflow-hidden flex flex-col mx-auto relative group">
-        <Image
-          src={comic.cover_url}
-          alt={comic.title}
-          width={128}
-          height={176}
-          className="w-full group-hover:scale-110 transition-all duration-300"
-        />
+        <div className="relative">
+          <Image
+            src={comic.cover_url}
+            alt={comic.title}
+            width={128}
+            height={176}
+            className="w-full group-hover:scale-110 transition-all duration-300"
+          />
+          <div className="w-full h-full bg-background absolute top-0 right-0 opacity-0 group-hover:opacity-60 transition-all duration-300 group-hover:scale-110" />
+        </div>
         <div className="p-2 flex-1 flex flex-col justify-between gap-2">
           <h3 className=" font-semibold truncate text-lg ">{comic.title}</h3>
           <div className="flex justify-between">
@@ -49,7 +52,6 @@ export default function ComicCard({
             </Link>
           )}
         </div>
-        <div className="w-full h-full bg-background absolute top-0 right-0 opacity-0 hover:opacity-60 transition-opacity duration-300" />
       </div>
     </Link>
   );

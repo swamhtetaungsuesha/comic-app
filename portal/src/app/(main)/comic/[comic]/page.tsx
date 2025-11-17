@@ -4,12 +4,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Star } from "lucide-react";
+import { Heart, Plus, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
 import { useState } from "react";
 import { format } from "date-fns";
+import { Toggle } from "@/components/ui/toggle";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Mousewheel } from "swiper/modules";
 
 export default function Comic() {
   const comic: ComicWithChapterAndUserAndRating = {
@@ -34,6 +37,7 @@ export default function Comic() {
         cover_url:
           "https://m.media-amazon.com/images/M/MV5BMWU1OGEwNmQtNGM3MS00YTYyLThmYmMtN2FjYzQzNzNmNTE0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
         comment_count: 10,
+        is_premium: false,
         created_at: "2023-10-01T10:00:00Z",
       },
       {
@@ -43,6 +47,7 @@ export default function Comic() {
         cover_url:
           "https://upload.wikimedia.org/wikipedia/en/9/90/One_Piece%2C_Volume_61_Cover_%28Japanese%29.jpg",
         comment_count: 20,
+        is_premium: true,
         created_at: "2023-10-02T10:00:00Z",
       },
       {
@@ -52,6 +57,37 @@ export default function Comic() {
         cover_url:
           "https://m.media-amazon.com/images/M/MV5BZTNjOWI0ZTAtOGY1OS00ZGU0LWEyOWYtMjhkYjdlYmVjMDk2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
         comment_count: 15,
+        is_premium: false,
+        created_at: "2023-10-03T10:00:00Z",
+      },
+      {
+        chapter_id: "ch3",
+        title: "Naruto Chapter 1",
+        chapter_number: 3,
+        cover_url:
+          "https://m.media-amazon.com/images/M/MV5BZTNjOWI0ZTAtOGY1OS00ZGU0LWEyOWYtMjhkYjdlYmVjMDk2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        comment_count: 15,
+        is_premium: false,
+        created_at: "2023-10-03T10:00:00Z",
+      },
+      {
+        chapter_id: "ch3",
+        title: "Naruto Chapter 1",
+        chapter_number: 3,
+        cover_url:
+          "https://m.media-amazon.com/images/M/MV5BZTNjOWI0ZTAtOGY1OS00ZGU0LWEyOWYtMjhkYjdlYmVjMDk2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        comment_count: 15,
+        is_premium: false,
+        created_at: "2023-10-03T10:00:00Z",
+      },
+      {
+        chapter_id: "ch3",
+        title: "Naruto Chapter 1",
+        chapter_number: 3,
+        cover_url:
+          "https://m.media-amazon.com/images/M/MV5BZTNjOWI0ZTAtOGY1OS00ZGU0LWEyOWYtMjhkYjdlYmVjMDk2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        comment_count: 15,
+        is_premium: false,
         created_at: "2023-10-03T10:00:00Z",
       },
     ],
@@ -86,6 +122,9 @@ export default function Comic() {
   };
 
   const [rating, setRating] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // slider chapter
 
   return (
     <div className="mx-auto py-10 px-12 grid grid-cols-3 gap-5">
@@ -124,10 +163,18 @@ export default function Comic() {
                 </Badge>
               ))}
             </div>
-            <Button variant="outline" className="mt-3">
+            <Toggle
+              aria-label="Toggle Favorite"
+              variant="outline"
+              className="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-primary data-[state=on]:*:[svg]:stroke-primary"
+            >
+              <Heart />
+              ADD TO FAVORITE
+            </Toggle>
+            {/* <Button variant="outline" className="mt-3">
               <Plus size={36} />
               ADD TO FAVORITE
-            </Button>
+            </Button> */}
           </div>
         </div>
 
@@ -136,11 +183,36 @@ export default function Comic() {
           <h2 className="text-primary text-lg font-semibold mb-6 border-l-4 border-primary pl-3">
             Chapters
           </h2>
-          <div className="grid grid-cols-1 gap-4">
-            {comic.chapter.map((ch) => (
-              <ChatperCard key={ch.chapter_id} chapter={ch} />
-            ))}
-          </div>
+          <Swiper
+            direction="vertical"
+            slidesPerView={5}
+            spaceBetween={12}
+            mousewheel={true}
+            centeredSlides={true}
+            centeredSlidesBounds={true}
+            modules={[Mousewheel]}
+            className="h-[800px]"
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          >
+            {comic.chapter.map((ch, index) => {
+              // Middle 3 items should be active
+              const isMiddleActive = Math.abs(index - activeIndex) <= 1;
+
+              return (
+                <SwiperSlide key={ch.chapter_id} className="transition-all">
+                  <div
+                    className={`transition-all duration-300 ${
+                      isMiddleActive
+                        ? "scale-100 opacity-100"
+                        : "scale-95 opacity-40"
+                    }`}
+                  >
+                    <ChatperCard chapter={ch} />
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
         </div>
       </div>
 
@@ -191,7 +263,7 @@ export default function Comic() {
         {/* User Reviews */}
         <div className="space-y-2 clear-both">
           {comic.ratings.map((r) => (
-            <div key={r.rating_id} className="border p-3">
+            <div key={r.rating_id} className="border p-3 rounded-md">
               <div className="flex items-center gap-3 mb-1">
                 <Avatar>
                   <AvatarImage src={r.user.avatar} alt={r.user.name} />
