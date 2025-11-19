@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "../components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { BoxIcon, Folder, Plus, SearchIcon } from "lucide-react";
+import { BoxIcon, DollarSign, Folder, Plus, SearchIcon } from "lucide-react";
 
 export default function Navbar() {
   const user = {
@@ -33,12 +33,12 @@ export default function Navbar() {
         <Link href="/">HOME</Link>
         <Link href="/genre">GENRE</Link>
         <Link href="/award">AWARD</Link>
-        {/* <Link href="/auth/sign-in">
+        <Link href="/payment-report-dashboard">
           <Button variant="outline">
-            DASHBOARD
-            <Plus size={36} />
+            <DollarSign size={36} />
+            PAYMENT REPORT DASHBOARD
           </Button>
-        </Link> */}
+        </Link>
         <div>
           <div className="relative w-full max-w-sm">
             <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
