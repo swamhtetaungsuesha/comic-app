@@ -4,6 +4,7 @@ import RevenueChart from "./chart";
 import PaymentDashboardHeader from "./header";
 import RecentSalesTable from "./table";
 import StatsCardsEarning from "./cards/StatsCardsEarning";
+import RecentPaymentRequestsTable from "./table/RecentPaymentRequestsTable ";
 
 const PaymentReportDashboardView = () => {
   return (
@@ -24,7 +25,7 @@ const PaymentReportDashboardView = () => {
       <div className="grid grid-cols-2">
         <RecentSalesTable />
         <div className="border-l">
-          <RecentSalesTable />
+          <RecentPaymentRequestsTable />
         </div>
       </div>
     </div>

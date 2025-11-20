@@ -231,3 +231,48 @@ export const mockProfile: Profile = {
     },
   ],
 };
+
+export const AccountTransactionRequests: AccountTransactionRequestWithAdminWallet[] =
+  [
+    {
+      requestId: "REQ001",
+      requestType: "DEPOSIT",
+      transactionId: "WVP1234567",
+      requestNumber: "09987654321",
+      requestName: "Aung Kyaw",
+      status: "PENDING",
+      processedBy: {
+        walletNumber: "0977777777",
+        walletName: "Admin WavePay 1",
+      },
+      createdAt: "2025-01-01",
+      updatedAt: "2025-01-01",
+    },
+    {
+      requestId: "REQ002",
+      requestType: "WITHDRAW",
+      requestAmount: 12000,
+      transactionId: "WVP1234535",
+      requestNumber: "09812345678",
+      requestName: "Mya Mya",
+      status: "COMPLETED",
+      processedBy: {
+        walletNumber: "0977778888",
+        walletName: "Admin WavePay 1",
+      },
+      createdAt: "2025-01-02",
+      updatedAt: "2025-01-02",
+    },
+    {
+      requestId: "REQ003",
+      requestType: "DEPOSIT",
+      requestAmount: 25000,
+      transactionId: "KBZ987654321",
+      requestNumber: "09555544444",
+      requestName: "Tun Lin",
+      status: "FAILED",
+      processedBy: undefined,
+      createdAt: "2025-01-03",
+      updatedAt: "2025-01-03",
+    },
+  ];
