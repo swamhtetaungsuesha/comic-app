@@ -22,7 +22,7 @@ const ComicDashboardView: FC<ComicDashboardViewProps> = ({
     }
   }, [comicWithChapters]);
   return (
-    <Card className="mx-6 min-h-[calc(100vh-91px)]">
+    <Card className="mx-6 min-h-[calc(100vh-91px)] bg-transparent border-none">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-3">
         <div className="px-4 lg:col-span-4 xl:col-span-3">
           <ComicHeader />
