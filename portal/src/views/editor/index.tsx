@@ -8,6 +8,8 @@ import ChapterList from "./chapter";
 import ChapterDetails from "./details";
 import SettingPremium from "./premium";
 import ContentPublishing from "./publish";
+import PageUploader from "./pages";
+import VersionMigration from "./version";
 
 interface ComicDashboardViewProps {
   comicWithChapters: ChaptersWithComicAndRatings;
@@ -45,10 +47,13 @@ const ChapterEditingDashboardView: FC<ComicDashboardViewProps> = ({
             </div>
           </div>
           <Separator />
-          <div className="flex-1">Pages</div>
+          <div className="flex-1">
+            <PageUploader />
+          </div>
           <Separator />
           <div>
-            <ContentPublishing />
+            <VersionMigration />
+            {/* <ContentPublishing /> */}
           </div>
         </div>
       </div>
